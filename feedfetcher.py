@@ -72,7 +72,7 @@ if __name__ == "__main__":
                 else:
                     if not silent_mode:
                         logging.debug('Nothing new. Waiting for good news...')
-            except e:
+            except Exception as e:
                 logging.critical('Error fetching feed ' + feed.Url)
                 logging.exception(e)
 
