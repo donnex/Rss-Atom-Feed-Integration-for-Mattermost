@@ -1,3 +1,4 @@
-requests==2.2.1
+requests==2.10.0
 feedparser==5.2.1
-html2text==2015.6.21
+html2text==2016.4.2
+peewee==2.8.1

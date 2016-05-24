@@ -1,0 +1,12 @@
+version: '2'
+
+# Services
+services:
+  # Feed fetcher
+  feedfetcher:
+    build:
+      dockerfile: ./Dockerfile
+      context: .
+    volumes:
+      - ./db:/app/db
+    restart: unless-stopped

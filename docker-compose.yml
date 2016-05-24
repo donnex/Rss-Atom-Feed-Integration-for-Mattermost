@@ -1,0 +1,14 @@
+version: '2'
+
+# Services
+services:
+  # Feed fetcher
+  feedfetcher:
+    build:
+      dockerfile: ./Dockerfile
+      context: .
+    volumes:
+      - ./settings.py:/app/settings.py:ro
+      - ./rssfeed.py:/app/rssfeed.py:ro
+      - ./feedfetcher.py:/app/feedfetcher.py:ro
+      - ./db:/app/db
