@@ -78,6 +78,11 @@ if __name__ == '__main__':
 
                 # Loop feed items
                 for feed_item in d['entries']:
+                    # Fix to not leak private tokens, Gitlab is affected by
+                    # this.
+                    if feed.Url == feed_item['link'] or not feed_item['link']:
+                        feed_item['link'] = 'http://missing-url'
+
                     rss_feed_item, created = RssFeedItem.get_or_create(
                         title=feed_item['title'], url=feed_item['link'],
                         rss_feed=feed.Url)
